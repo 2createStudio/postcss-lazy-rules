@@ -172,10 +172,8 @@ module.exports = postcss.plugin('postcss-lazy-rules', function(opts) {
 	}
 
 	return function(root, result) {
-		const stylesheet = path.resolve(__dirname, opts.stylesheet);
-
 		// We don't care about other stylesheets.
-		if (root.source.input.file !== stylesheet) {
+		if (root.source.input.file !== opts.stylesheet) {
 			return;
 		}
 

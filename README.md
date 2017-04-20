@@ -4,13 +4,14 @@
 
 ```js
 var fs = require('fs');
+var path = require('path');
 var postcss = require('postcss');
 var rules = require('postcss-lazy-rules');
 
 var css = fs.readFileSync('./css/sprite.css', 'utf8');
 var opts = {
-	images: './images/*.png',
-	stylesheet: './css/sprite.css'
+	images: path.resolve(__dirname, './images/*.png'),
+	stylesheet: path.resolve(__dirname, './css/sprite.css')
 };
 
 postcss([rules(opts)])
