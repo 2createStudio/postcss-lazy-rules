@@ -106,11 +106,14 @@ const compileCSS = (root, images, ratio) => {
 			['font-size', 0]
 		];
 
+		rule.source = root.source;
+
 		decls.forEach(([prop, value]) => {
 			const decl = postcss.decl({ prop, value });
 
 			decl.raws.before = ' ';
 			decl.raws.after = '';
+			decl.source = rule.source;
 
 			rule.append(decl);
 		});
@@ -133,6 +136,7 @@ const compileCSS = (root, images, ratio) => {
 
 		mediaRule.raws.before = '\n';
 		mediaRule.raws.after = '\n';
+		mediaRule.source = root.source;
 
 		mediaRule.append(images);
 		root.append(mediaRule);
