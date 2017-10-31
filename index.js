@@ -103,7 +103,7 @@ const compileCSS = (root, images, ratio) => {
 			['height', `${size.height / ratio}px`],
 			['display', 'inline-block'],
 			['vertical-align', 'middle'],
-			['font-size', 0]
+			['font-size', '0px']
 		];
 
 		rule.source = root.source;
