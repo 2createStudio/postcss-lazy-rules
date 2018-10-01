@@ -177,7 +177,7 @@ module.exports = postcss.plugin('postcss-lazy-rules', function(opts) {
 
 	return function(root, result) {
 		// We don't care about other stylesheets.
-		if (root.source.input.file !== opts.stylesheet) {
+		if (slash(root.source.input.file) !== slash(opts.stylesheet)) {
 			return;
 		}
 
